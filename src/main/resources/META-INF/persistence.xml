@@ -5,6 +5,7 @@
              version="2.1">
 
     <persistence-unit name="PERSISTENCE" transaction-type="RESOURCE_LOCAL">
+        <class>com.example.project_1_java_jee.entity.Livre</class>
         <!-- JDBC Connection Configuration -->
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
@@ -17,6 +18,7 @@
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
         </properties>
+
     </persistence-unit>
 
 
