@@ -23,7 +23,7 @@ public class LivreService {
     }
 
     public Livre recherche(Long id){
-       return livrerepository.findByAll(id);
+       return livrerepository.findById(id);
     }
 
     public Livre modifier (Livre livre){
