@@ -2,6 +2,9 @@ package com.example.project_1_java_jee.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.*;
 
 
@@ -16,7 +19,10 @@ public class Livre {
 
     private String auteur;
 
+    @Getter
+    @Setter
     private  Integer stock;
+
 
     @OneToMany(mappedBy = "livre")
     private List<Emprunt> emprunts;

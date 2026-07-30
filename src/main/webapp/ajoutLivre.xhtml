@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets">
+
+
+<ui:composition
+        template="/WEB-INF/templates/template.xhtml">
+
+
+    <ui:define name="title">
+
+        Ajouter un livre
+
+    </ui:define>
+
+
+
+    <ui:define name="content">
+
+
+        <div class="card shadow p-4">
+
+
+            <h1>
+                Ajouter un livre
+            </h1>
+
+
+            <h:form>
+
+
+                <div class="mb-3">
+
+                    <label>Titre</label>
+
+                    <h:inputText styleClass="form-control"/>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label>Auteur</label>
+
+                    <h:inputText styleClass="form-control"/>
+
+                </div>
+
+
+                <div class="mb-3">
+
+                    <label>Stock</label>
+
+                    <h:inputText styleClass="form-control"/>
+
+                </div>
+
+
+                <h:commandButton
+                        value="Enregistrer"
+                        styleClass="btn btn-success"/>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
