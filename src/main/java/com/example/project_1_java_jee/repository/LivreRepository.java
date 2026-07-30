@@ -36,9 +36,10 @@ public class LivreRepository {
     }
 
     @Transactional
-    public void update(Livre livre){
-        entityManager.merge(livre);
+    public Livre update(Livre livre){
+       return entityManager.merge(livre);
     }
+
 
     @Transactional
     public void delete(Livre livre) {
