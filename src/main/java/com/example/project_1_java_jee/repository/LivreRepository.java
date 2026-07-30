@@ -4,28 +4,33 @@ import com.example.project_1_java_jee.entity.Livre;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
 
-import java.util.*;
+import java.util.List;
+
 
 @Stateless
 public class LivreRepository {
 
-    // injection de dependance de l'entityManager
-    @PersistenceContext
+
+    @PersistenceContext(unitName = "PERSISTENCE")
     private EntityManager entityManager;
 
-    @Transactional
+
     public void save(Livre livre){
+
         entityManager.persist(livre);
-    }
 
-    public Livre findByAll(Long id){
-        return entityManager.find(Livre.class,id);
     }
 
 
-    public List<Livre> findAll() {
+    public Livre findById(Long id){
+
+        return entityManager.find(Livre.class, id);
+
+    }
+
+
+    public List<Livre> findAll(){
 
         return entityManager
                 .createQuery(
@@ -33,20 +38,26 @@ public class LivreRepository {
                         Livre.class
                 )
                 .getResultList();
+
     }
 
-    @Transactional
-    public void update(Livre livre){
-        entityManager.merge(livre);
+
+    public Livre update(Livre livre){
+
+        return entityManager.merge(livre);
+
     }
 
-    @Transactional
-    public void delete(Livre livre) {
-        Livre livredelete =
+
+    public void delete(Livre livre){
+
+        Livre livreManaged =
                 entityManager.contains(livre)
                         ? livre
                         : entityManager.merge(livre);
-        entityManager.remove(livredelete);
+
+        entityManager.remove(livreManaged);
+
     }
 
 }
