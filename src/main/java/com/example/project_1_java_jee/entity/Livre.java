@@ -8,19 +8,21 @@ import lombok.Setter;
 import java.util.*;
 
 
+@Getter
+@Setter
 @Entity
 @Table(name = "livres")
 public class Livre {
+
+
     @Id
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     private Long id;
 
     private String titre;
-
     private String auteur;
 
-    @Getter
-    @Setter
+
     private  Integer stock;
 
 

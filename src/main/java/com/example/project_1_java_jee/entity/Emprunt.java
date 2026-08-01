@@ -2,8 +2,15 @@ package com.example.project_1_java_jee.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDate;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "emprunts")
@@ -20,35 +27,4 @@ public class Emprunt {
     @JoinColumn(name = "livre_id")
     private Livre livre;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNomEmpreteur() {
-        return nomEmpreteur;
-    }
-
-    public void setNomEmpreteur(String nomEmpreteur) {
-        this.nomEmpreteur = nomEmpreteur;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public Livre getLivre() {
-        return livre;
-    }
-
-    public void setLivre(Livre livre) {
-        this.livre = livre;
-    }
 }

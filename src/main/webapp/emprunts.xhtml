@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:composition template="/WEB-INF/templates/template.xhtml">
+    <ui:define name="title">
+        Emprunts
+    </ui:define>
+    <ui:define name="content">
+        <div class="card shadow p-4">
+            <h1>Emprunts</h1>
+
+            <h:messages globalOnly="true"/>
+
+            <div class="mb-3">
+                <h:outputLabel value="Nom de l'emprunteur" for="nom"/>
+                <h:inputText id="nom" value="#{empruntBean.emprunt.nomEmpreteur}" styleClass="form-control"/>
+            </div>
+
+            <div class="mb-3">
+                <h:outputLabel value="Livre" for="livre"/>
+                <h:selectOneMenu id="livre" value="#{empruntBean.selectedLivreId}" styleClass="form-select">
+                    <f:selectItem itemLabel="-- Choisir --" itemValue="" />
+                    <f:selectItems value="#{empruntBean.livres}" var="l" itemValue="#{l.id}" itemLabel="#{l.titre} (#{l.stock})" />
+                </h:selectOneMenu>
+            </div>
+
+            <h:commandButton value="Emprunter" action="#{empruntBean.ajouter}" styleClass="btn btn-primary" />
+
+            <hr/>
+
+            <h2>Liste des emprunts</h2>
+            <h:dataTable value="#{empruntBean.emprunts}" var="e" styleClass="table table-striped">
+                <h:column>
+                    <f:facet name="header">Nom emprunteur</f:facet>
+                    #{e.nomEmpreteur}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Date</f:facet>
+                    #{e.date}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Livre</f:facet>
+                    #{e.livre != null ? e.livre.titre : ''}
+                </h:column>
+            </h:dataTable>
+
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
