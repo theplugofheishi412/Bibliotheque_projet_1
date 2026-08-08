@@ -18,39 +18,48 @@
     </properties>
     <dependencies>
 
-        <!-- API Jakarta EE fournie par WildFly -->
+
+        <!-- Source: https://mvnrepository.com/artifact/jakarta.platform/jakarta.jakartaee-api -->
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>10.0.0</version>
+            <version>11.0.0</version>
             <scope>provided</scope>
         </dependency>
 
+        <!-- Jakarta Persistence API for compilation (available at runtime from the application server) -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.1.0</version>
+            <scope>compile</scope>
+        </dependency>
 
-        <!-- Driver PostgreSQL -->
+        <!-- Source: https://mvnrepository.com/artifact/org.postgresql/postgresql -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.7.13</version>
+            <scope>compile</scope>
         </dependency>
 
 
-        <!-- Lombok (optionnel) -->
+        <!-- Source: https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.44</version>
-            <scope>provided</scope>
+            <version>1.18.46</version>
+            <scope>compile</scope>
         </dependency>
 
 
+        <!-- Source: https://mvnrepository.com/artifact/jakarta.faces/jakarta.faces-api -->
         <dependency>
             <groupId>jakarta.faces</groupId>
             <artifactId>jakarta.faces-api</artifactId>
-            <version>4.1.2</version>
-            <scope>provided</scope>
+            <version>5.0.0-M3</version>
+            <scope>compile</scope>
         </dependency>
-
 
         <!-- Tests -->
         <dependency>
